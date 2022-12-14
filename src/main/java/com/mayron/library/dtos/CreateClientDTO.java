@@ -10,6 +10,7 @@ public class CreateClientDTO {
     
     @NotBlank(message = "Você precisa preencher o campo name")
     @Length(min = 2, max = 50, message = "O campo name deve ter entre {min} e {max} caracteres")
+    
     private String name;
 
     @NotBlank(message = "Você precisa preencher o campo cpf")

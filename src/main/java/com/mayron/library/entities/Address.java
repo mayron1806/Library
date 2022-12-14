@@ -20,7 +20,7 @@ public class Address implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(nullable = false, length = 8)
+    @Column(nullable = false, length = 9)
     private String cep;
     @Column(nullable = false, length = 30)
     private String city;

@@ -1,7 +1,6 @@
 package com.mayron.library.entities;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -14,34 +13,33 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "client")
-public class Client implements Serializable{
+@Table(name = "book")
+public class Book implements Serializable{
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
-    
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+
     @Column(nullable = false, length = 100)
     private String name;
-    @Column(nullable = false, length = 15, unique = true)
-    private String cpf;
 
-    // relation 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "address_id")
-    private Address address;
+    @Column(nullable = false, length = 100)
+    private String author;
+    
+    @Column
+    private Integer Pages;
 
-    // relation 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "lending_id", nullable = true)
     private Lending lending;
 
-    public UUID getId() {
+
+    public Long getId() {
         return this.id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,20 +51,28 @@ public class Client implements Serializable{
         this.name = name;
     }
 
-    public String getCpf() {
-        return this.cpf;
+    public String getAuthor() {
+        return this.author;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
-    public Address getAddress() {
-        return this.address;
+    public Integer getPages() {
+        return this.Pages;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setPages(Integer Pages) {
+        this.Pages = Pages;
+    }
+
+    public Lending getLending() {
+        return this.lending;
+    }
+
+    public void setLending(Lending lending) {
+        this.lending = lending;
     }
 
 }

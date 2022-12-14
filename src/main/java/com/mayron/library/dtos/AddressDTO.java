@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public class AddressDTO {
     @NotBlank(message = "Você precisa preencher o campo cep")
-    @Length(max = 8, message = "O campo cep deve ter no maximo {max} caracteres")
+    @Length(max = 9, message = "O campo cep deve ter no maximo {max} caracteres")
     private String cep;
     
     @NotBlank(message = "Você precisa preencher o campo city")
